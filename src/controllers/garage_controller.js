@@ -11,12 +11,10 @@ export default class extends Controller {
 
   fetchAllCars() {
     fetch('https://wagon-garage-api.herokuapp.com/awesome-1092/cars')
-      .then((response) => {
-        return response.json()
-      })
+      .then(response => response.json())
       .then((data) => {
         data.forEach((car) => {
-          console.log(car);
+          // console.log(car);
           this.insertCarCard(car)
         })
       })
@@ -49,10 +47,11 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
+        // add new car to the view
         this.insertCarCard(data)
       })
-
+      // reset form to clean inputs
       event.currentTarget.reset()
   }
 };
